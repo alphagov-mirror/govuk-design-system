@@ -17,3 +17,5 @@ applications:
   instances: 2
   health-check-http-endpoint: /__canary__/
   health-check-type: http
+  env:
+    ENVIRONMENT: production
