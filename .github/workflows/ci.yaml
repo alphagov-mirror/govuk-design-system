@@ -1,6 +1,6 @@
 name: CI Workflow
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -41,11 +41,11 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     needs: build
-    if: ${{ github.ref == 'refs/heads/master' }}
     env:
       CF_API: "https://api.cloud.service.gov.uk"
       CF_ORG: "govuk-design-system"
-      CF_SPACE: "design-system"
+      CF_SPACE: "sandbox"
+      ENVIRONMENT: "production"
 
     steps:
       - uses: actions/checkout@master
